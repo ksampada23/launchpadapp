@@ -1,0 +1,61 @@
+body {
+  margin: 0;
+}
+
+.background {
+  position: relative;
+}
+
+img {
+  position: absolute;
+  z-index: 0;
+}
+
+button {
+  border-radius: 15px;
+  border: 1px solid transparent;
+  font-size: 1em;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-color: #a9a297;
+  color: white;
+  cursor: pointer;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.input {
+  position: absolute;
+  z-index: 1;
+  padding: 0.2em 0.9em;
+  top: 550px;
+  left: 83.5%;
+}
+
+.switch {
+  position: absolute;
+  z-index: 1;
+  padding: 0.2em 2.8em;
+  top: 232px;
+  left: 80%;
+}
+
+.exit {
+  position: absolute;
+  z-index: 1;
+  border-radius: 20px;
+  top: 53px;
+  left: 5.8%;
+}
+
+.confirm {
+  position: absolute;
+  z-index: 1;
+  padding: 0.2em 2.8em;
+  top: 710px;
+  left: 39.7%;
+  font-size: 30px;
+}
