@@ -7,7 +7,7 @@ body {
 }
 
 img {
-  position: absolute;
+  position: relative;
   z-index: 0;
 }
 
@@ -22,10 +22,10 @@ button {
   cursor: pointer;
 }
 
-button:focus,
+/* button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
+  outline: 15px auto;
+} */
 
 .input {
   position: absolute;
@@ -49,6 +49,18 @@ button:focus-visible {
   border-radius: 20px;
   top: 53px;
   left: 5.8%;
+}
+
+.calendar {
+  position: absolute;
+  z-index: 1;
+  top: 280px; 
+  left: 76%;
+  right: 3%;
+  button {
+    margin: 5px;
+
+  }
 }
 
 .confirm {

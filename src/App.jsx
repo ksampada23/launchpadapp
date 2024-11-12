@@ -4,14 +4,27 @@ import viteLogo from '/vite.svg';
 import './App.css';
 import image from './img/background0.png';
 import image1 from './img/background1.png';
+import Calendar from 'react-calendar';
+
+
+
+
 
 function App() {
   const [backgroundImage, setBackgroundImage] = useState(false);
+  const [view, setView] = useState(false);
   const [hidden, setDisplay] = useState(false);
+
+
+
 
   return (
     <>
+    
+    
+
       <div class="background">
+    
         <img
           style={{
             backgroundSize: 'contain',
@@ -21,6 +34,11 @@ function App() {
           src={backgroundImage ? image1 : image}
           alt=""
         />
+        
+        {!hidden && view && (
+        <Calendar className = "calendar" ></Calendar>
+
+        )}
 
         {!hidden && (
           <button
@@ -35,10 +53,13 @@ function App() {
         )}
 
         {!hidden && (
-          <button class="switch" onClick={() => {}}>
+          <button class="switch" onClick={() => {
+            setView(!view);
+          }}>
             SWITCHVIEW
           </button>
         )}
+
 
         {hidden && (
           <button
@@ -58,6 +79,7 @@ function App() {
           </button>
         )}
       </div>
+       
     </>
   );
 }
