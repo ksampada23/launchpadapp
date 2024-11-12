@@ -7,22 +7,14 @@ import image1 from './img/background1.png';
 import Calendar from 'react-calendar';
 
 
-
-
-
 function App() {
   const [backgroundImage, setBackgroundImage] = useState(false);
   const [view, setView] = useState(false);
   const [hidden, setDisplay] = useState(false);
 
-
-
-
   return (
     <>
-    
-    
-
+  
       <div class="background">
     
         <img

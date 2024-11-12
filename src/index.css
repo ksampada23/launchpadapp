@@ -54,7 +54,7 @@ button:focus-visible {
 .calendar {
   position: absolute;
   z-index: 1;
-  top: 280px; 
+  top: 265px; 
   left: 76%;
   right: 3%;
   button {
