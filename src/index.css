@@ -6,12 +6,12 @@ body {
   position: relative;
 }
 
-img {
+.mainIMG {
   position: relative;
   z-index: 0;
 }
 
-button {
+.styleButton {
   border-radius: 15px;
   border: 1px solid transparent;
   font-size: 1em;
@@ -22,10 +22,10 @@ button {
   cursor: pointer;
 }
 
-button:focus,
+/* button:focus,
 button:focus-visible {
   outline: 15px auto;
-}
+} */
 
 .title {
   position: absolute;
@@ -37,23 +37,42 @@ button:focus-visible {
   
 }
 
-.input {
+#about {
+  position: absolute;
+  z-index: 1;
+  top: 18px;
+  left: 1.7%;
+ 
+
+}
+
+#resources {
+  position: absolute;
+  z-index: 1;
+  top: 18px;
+  left: 6.7%;
+
+}
+
+#input {
   position: absolute;
   z-index: 1;
   padding: 0.2em 0.9em;
   top: 550px;
   left: 83.5%;
+  
 }
 
-.switch {
+#switch {
   position: absolute;
   z-index: 1;
   padding: 0.2em 2.8em;
   top: 232px;
   left: 80%;
+  white-space: nowrap;
 }
 
-.exit {
+#exit {
   position: absolute;
   z-index: 1;
   border-radius: 20px;
@@ -62,6 +81,7 @@ button:focus-visible {
 }
 
 .calendar {
+  
   position: absolute;
   z-index: 1;
   top: 270px; 
@@ -70,31 +90,41 @@ button:focus-visible {
   button {
     margin-bottom: 10px;
     padding: 0.2em 0.3em;
+    border-radius: 15px;
+    border: 1px solid transparent;
+    font-size: 1em;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: #a9a297;
+    color: white;
+    cursor: pointer;
   }
  
 }
 
-.confirm {
+#confirm {
   position: absolute;
   z-index: 1;
   padding: 0.2em 2.8em;
   top: 710px;
   left: 39.7%;
   font-size: 30px;
+  cursor: pointer;
 }
 
 .events {
   position: absolute;
   z-index: 1;
-  top: 150px;
-  left: 12%;
+  top: 50px;
+  left: 8%;
   
 }
 
 .intro {
-  
+  padding: 2em 0em;
   font-size: 30px;
   color: white;
+  margin-top: 55px;
  
 
 }
@@ -104,18 +134,167 @@ button:focus-visible {
   color: white;
 }
 
-.createEvent {
+
+#signOut {
   position: absolute;
   padding: 0.2em 5.8em;
-  top: 150px;
-  left: 185.8%;
+  top: 0px;
+  left: 0%;
+
 }
 
-.signOut {
+.datepicker {
+  width: 100%;
+}
+
+#time {
   position: absolute;
-  padding: 0.2em 5.8em;
-  top: 300px;
-  left: 190.8%;
+  z-index: 1;
+  top: 270px; 
+  left: 78%;
+  right: 5%;
+  color: white;
 
 }
+
+.about {
+  position: absolute;
+  z-index: 1;
+  top: 0px; 
+
+  
+}
+
+#titleABOUT {
+  position: absolute;
+  font-size: 30px;
+  color: white;
+  top: 45px;
+  margin-left: 558.7px;
+  white-space: nowrap;
+  
+}
+
+#name {
+  position: absolute;
+  font-size: 30px;
+  color: white;
+  top: 170px;
+  margin-left: 575.7px;
+  display: inline;
+  white-space: nowrap;
+  
+
+}
+
+
+#me{
+  position: absolute;
+  border-radius: 80px;
+  border: 5px solid #fff;
+  top: 250px;
+  margin-left: 595.7px;
+
+}
+
+.extraTEXT {
+  position: absolute;
+  top: 180px;
+  margin-left: 130px;
+  width: 390px;
+  
+  color: white;
+  
+
+}
+
+.inspoTEXT {
+  position: absolute;
+  top: 270px;
+  margin-left: 970px;
+  width: 390px;
+  
+  color: white;
+  
+}
+
+#titleRESOURCES {
+  position: absolute;
+  font-size: 30px;
+  color: white;
+  top: 45px;
+  margin-left: 665.7px;
+  white-space: nowrap;
+  
+}
+
+#videoIntro {
+  position: absolute;
+  top: 160px;
+  margin-left: 120px;
+  color: white;
+  
+}
+
+#video {
+  position: absolute;
+  top: 230px;
+  margin-left: 120px;
+
+}
+
+#video1 {
+  position: absolute;
+  top: 480px;
+  margin-left: 120px;
+
+}
+
+
+.websites {
+  position: absolute;
+  top: 160px;
+  margin-left: 570px;
+  width: 790px;
+  
+  color: white;
+
+}
+
+#websitesIntro {
+  position: absolute;
+  color: white;
+  white-space: nowrap;
+  
+}
+
+#AARP{
+  position: absolute;
+  top: 80px;
+ 
+}
+
+#websiteText {
+  position: absolute;
+  top: 100px;
+  color: white;
+  
+}
+
+
+#Alzheimers{
+  position: absolute;
+  top: 220px;
+ 
+}
+
+#websiteText1 {
+  position: absolute;
+  top: 240px;
+  color: white;
+  
+}
+
+
+
 
