@@ -123,9 +123,7 @@ button:focus-visible {
   
 }
 
-textWrapper{
-  /* text-align: center; */
-}
+
 
 .chooseTimings {
   margin-left: 20px;
@@ -191,6 +189,16 @@ textWrapper{
 #inputLink {
   color: black;
   font-size: 15px;
+
+}
+
+#googleLink{
+  position: absolute;
+  z-index: 2;
+
+  top: 680px;
+  left: 43.7%;
+
 
 }
 

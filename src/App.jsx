@@ -229,6 +229,12 @@ function App() {
           </button>
         )}
         
+        {hidden && ( 
+         <a id="googleLink" href="https://accounts.google.com/v3/signin/identifier?dsh=S-1073226311%3A1664835032047536&flowEntry=ServiceLogin&flowName=GlifWebSignIn&osid=1&passive=1209600&service=cl&ifkv=AQDHYWp4UqFtWE2TunnNXGOwl1ohaOtK0MQJwAJhBWl_bDLmD3899x7RZiA-1AAd8_kRDuB_YOHR">Check Your Google Calendar</a>
+        )}
+
+
+        
         {hidden && (
         <div className = "events">
           {session ?
@@ -245,7 +251,10 @@ function App() {
                     <h1 className = "text" >Please enter your reminder's end time</h1>
                     <p className ="times">{end.toString()}</p>
                     <DateTimePicker onChange={setEnd} value={end} />
+                    
                   </div>
+                  
+                  
                 </div>
                   
                 <div className ="inputText">
@@ -253,6 +262,7 @@ function App() {
                   <input className="reminderName" type="text" id = "inputName" onChange={(e) => setEventName(e.target.value)} />
                   <h1 className="reminderLink" >Please enter your reminder's link</h1>
                   <input className="reminderLink" id ="inputLink" onChange={(e) => {setEventDescription(e.target.value); setDisplayLink(true)}} />
+                  
                 </div>
               </div>
               
