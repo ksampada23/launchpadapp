@@ -16,7 +16,7 @@ function App() {
   const [hidden, setDisplay] = useState(false);
   const [about, setAbout] = useState(false);
   const [resources, setResources] = useState(false);
-
+  const [events, setEvents] = useState([]);
 
 
   const date = new Date();
@@ -30,14 +30,13 @@ function App() {
   minutes = minutes < 10 ? '0' + minutes : minutes; 
   const Time = hours + ":" + minutes + " " + ampm;
   
-
-
-
   const [start, setStart] = useState(new Date());
   const [end, setEnd] = useState(new Date());
 
   const [ eventName, setEventName ] = useState("");
   const [ eventDescription, setEventDescription ] = useState("");
+  const [ displayLink, setDisplayLink ] = useState(false);
+  
 
   const session = useSession(); // tokens, when session exists we have a user
   const supabase = useSupabaseClient(); // talk to supabase!
@@ -47,6 +46,7 @@ function App() {
   if(isLoading) {
     return <></>
   }
+
 
   async function googleSignIn() {
     const { error } = await supabase.auth.signInWithOAuth({
@@ -93,6 +93,7 @@ function App() {
     });
   }
 
+
   console.log(session);
   console.log(start);
   console.log(end);
@@ -115,6 +116,40 @@ function App() {
           src={backgroundImage ? image1 : image}
           alt=""
         />
+        
+        {!hidden && !about && !resources &&(
+          <div className="displayedLink">
+            {displayLink && (
+            eventDescription.includes("youtube.com") || eventDescription.includes("youtu.be") ? (
+          <>
+          <iframe
+            width="800"
+            height="452"
+            src={
+              eventDescription.includes("watch?v=")
+                ? eventDescription.replace("watch?v=", "embed/")
+                : eventDescription.replace("youtu.be/", "www.youtube.com/embed/")
+            }
+            title="YouTube Video"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            onError={() => alert("Embedding is restricted for this video. Opening in YouTube.")}
+          ></iframe>
+          <p>
+            If the video doesn't play, click{" "}
+            <a href={eventDescription} target="_blank" rel="noopener noreferrer">
+              here to view on YouTube.
+            </a>
+          </p>
+        </>
+        ) : (
+        <p>{eventDescription}</p>
+        )
+        )}
+        </div>
+      )}
+
 
         {!hidden && !about && !resources && (
         <button id="about" className = "styleButton"
@@ -130,16 +165,14 @@ function App() {
           setBackgroundImage(true);
           setResources(true);
         }}> RESOURCES</button>
-          
         )}
 
         {!hidden && !about && !resources && (
-        <h1 className = "title">FUTURE TITLE NAME</h1>
+        <h1 className = "title">MINDFUL MOMENTS</h1>
         )}
         
         {!hidden && view && !about && !resources && (
         <Calendar className="calendar"  ></Calendar>
-
         )}
 
         {!hidden && !view && !about && !resources && (
@@ -149,12 +182,8 @@ function App() {
           <h1>Time: </h1>
           <h2>{Time}</h2>
 
-          
-
         </div>
-
         )}
-
 
         {!hidden && !about && !resources && (
           <button
@@ -205,14 +234,28 @@ function App() {
           {session ?
             <>
               <h2 className = "intro" >Hello, {session.user.email} !</h2>
-              <p className = "text" >Please enter your reminder's start time</p>
-              <DateTimePicker className="datepicker" onChange={setStart} value={start} />
-              <p className = "text" >Please enter your reminder's end time</p>
-              <DateTimePicker onChange={setEnd} value={end} />
-              <p className = "text" >Please enter your reminder's name</p>
-              <input type="text" onChange={(e) => setEventName(e.target.value)} />
-              <p className = "text" >Please enter your reminder's link</p>
-              <input type="text" onChange={(e) => setEventDescription(e.target.value)} />
+              <div className = "textWrapper">
+                <div className = "chooseTimings">
+                  <div className = "starting">
+                    <h1 className = "text" >Please enter your reminder's start time</h1>
+                    <p className ="times">{start.toString()}</p>
+                    <DateTimePicker className="datepicker" onChange={setStart} value={start} />
+                  </div>
+                  <div className = "ending">
+                    <h1 className = "text" >Please enter your reminder's end time</h1>
+                    <p className ="times">{end.toString()}</p>
+                    <DateTimePicker onChange={setEnd} value={end} />
+                  </div>
+                </div>
+                  
+                <div className ="inputText">
+                  <h1 className="reminderName">Please enter your reminder's name</h1>
+                  <input className="reminderName" type="text" id = "inputName" onChange={(e) => setEventName(e.target.value)} />
+                  <h1 className="reminderLink" >Please enter your reminder's link</h1>
+                  <input className="reminderLink" id ="inputLink" onChange={(e) => {setEventDescription(e.target.value); setDisplayLink(true)}} />
+                </div>
+              </div>
+              
               <button id="signOut" className = "styleButton" onClick={() => signOut()}>Sign Out</button>
 
             </>
@@ -228,6 +271,7 @@ function App() {
           <div className = "about">
             <h1 id="titleABOUT">A LITTLE BIT ABOUT ME...</h1>
             
+            
             <h1 id="name" >Kallakuru Saanvi Sampada</h1>
            
             <img id="me" width="300" height="420" src= {me}></img>
@@ -241,7 +285,7 @@ function App() {
               </h2>
               <p>
                 Hi everyone! My name is Saanvi Sampada and I am currently a freshman at Purdue University majoring in Computer Science along with Mathematics. 
-                I am a home grown Hoosier, born and raised in Indiana and coding has been a huge passion of mine throughout my life, this is one of my first 
+                I am a home grown Hoosier, born and raised in Indiana, coding has been a huge passion of mine throughout my life and this is one of my first 
                 personal projects!
               </p>
 
@@ -343,16 +387,13 @@ function App() {
               come with it in various places such as relationships, behavior, and identity. 
 
               </p>
-            
-            
-
             </div>
-
-           
-
-
           </div>
         )}
+
+
+
+
 
       </div>
        

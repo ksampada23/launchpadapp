@@ -113,27 +113,91 @@ button:focus-visible {
 }
 
 .events {
+  flex: 1;
   position: absolute;
   z-index: 1;
   top: 50px;
   left: 8%;
+  width: 1250px;
+  height: 650px;
   
 }
 
+textWrapper{
+  /* text-align: center; */
+}
+
+.chooseTimings {
+  margin-left: 20px;
+  display: inline-block;
+  vertical-align: middle;
+
+}
+
+.starting {
+
+}
+
+.ending {
+  margin-top: 150px;
+}
+
+.inputText {
+  margin-left: 250px;
+  display: inline-block;
+  vertical-align: middle;
+  height: 350px;
+  
+}
+
+
 .intro {
-  padding: 2em 0em;
+  /* padding: 2em 0em; */
   font-size: 30px;
   color: white;
-  margin-top: 55px;
+  margin-top: 110px;
+  margin-bottom: 0px;
+  text-align: center;
+
  
 
 }
 
 .text{
-  
+  font-size: 20px;
   color: white;
 }
 
+.reminderName {
+  font-size: 20px;
+  color: white;
+
+}
+
+.reminderLink {
+  font-size: 20px;
+  color: white;
+  
+
+}
+
+#inputName {
+  color: black;
+  font-size: 15px;
+  margin-bottom: 150px;
+
+}
+
+#inputLink {
+  color: black;
+  font-size: 15px;
+
+}
+
+.times {
+  color:white;
+   
+}
 
 #signOut {
   position: absolute;
@@ -294,6 +358,14 @@ button:focus-visible {
   color: white;
   
 }
+
+.displayedLink {
+  position: absolute;
+  top: 160px;
+  left: 150px;
+  color: white;
+}
+
 
 
 
